@@ -18,12 +18,19 @@ class Questions:
         print(self.__series['a']['serie'])
         print(self.__series['a']['msg'])
 
-    def get_next_question(self):
+    @staticmethod
+    def show_question(data):
+        print(data['title'])
+        for q in data['questions']:
+            print("\n%s) %s" % (q, data['questions'][q]))
+
+    def next_question(self):
         for aw in Questions.answers:
             if Questions.answers[aw] == '':
-                return self.__questions[aw]['title']
+                self.show_question(self.__questions[aw])
+                return True
 
-        return 'END'
+        return False
 
     @staticmethod
     def set_answer(value):

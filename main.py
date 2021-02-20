@@ -5,28 +5,22 @@ from data import series, questions
 
 def main():
     clear()
-    header()
-
     q = Questions(series, questions)
-    question = ''
 
-    while question != 'END':
-        question = q.get_next_question()
-
-        if question != 'END':
-            print(question)
-
-            op = input('Escolha uma das opções acima: ')
-            Questions.set_answer(op)
-
+    while q.next_question():
+        op = input("\nEscolha uma das opções acima:\n\n")
+        Questions.set_answer(op)
         clear()
 
     Questions.show_answers()
     Questions.reset()
 
 
-if __name__ == '__main__':
-    while True:
-        main()
+while True:
+    header()
+    input('Pressione <ENTER> para continuar...')
 
-        input('Pressione <ENTER> para continuar...')
+    main()
+
+    input('Pressione <ENTER> para refazer o teste...')
+    clear()

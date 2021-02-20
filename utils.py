@@ -2,8 +2,8 @@ import os
 
 
 def clear():
-    clear = 'cls' if os.name == 'nt' else 'clear'
-    os.system(clear)
+    cls = 'cls' if os.name == 'nt' else 'clear'
+    os.system(cls)
 
 
 def header():

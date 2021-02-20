@@ -63,7 +63,7 @@ def questions():
                     'b': 'Larga uma frase polêmica e vê uma pequena guerra se formar',
                     'c': 'Puxa um assunto e te lembram que já foi discutido semana passada',
                     'd': 'Sugere que os colegas trabalhem na ideia de um novo projeto',
-                    'e': 'Desabafa sobre como odeia PHP. Todo mundo na sala adora PHP'
+                    'e': 'Desabafa sobre como odeia Java. Todo mundo na sala adora Java'
                 }
             },
             5: {
