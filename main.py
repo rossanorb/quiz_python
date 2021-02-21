@@ -9,6 +9,10 @@ def main():
 
     while q.next_question():
         op = input("\nEscolha uma das opções acima:\n\n")
+        while not Questions.option_validation(op):
+            print('Opção inválida!')
+            op = input("\nEscolha entre a, b, c, d ou e:\n\n")
+
         Questions.set_answer(op)
         clear()
 
