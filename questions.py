@@ -17,18 +17,12 @@ class Questions:
         self.__series = series()
         self.__questions = questions()
 
-    def series(self):
-        print(self.__series['a']['serie'])
-        print(self.__series['a']['msg'])
-
-    @staticmethod
-    def option_validation(value):
+    def option_validation(self, value):
         for option in Questions.options:
             if option == value:
                 return True
         return False
 
-    @staticmethod
     def scramble(data):
         index = ['a', 'b', 'c', 'd', 'e']
         i = 0
@@ -62,8 +56,7 @@ class Questions:
 
         return False
 
-    @staticmethod
-    def set_answer(option):
+    def set_answer(self, option):
         value = Questions.options[option]['letter']
         for aw in Questions.answers:
             if Questions.answers[aw] == '':
@@ -72,15 +65,20 @@ class Questions:
 
         return False
 
-    @staticmethod
-    def show_answers():
-        for aw in Questions.answers:
-            if Questions.answers[aw] != '':
-                print("index {index} é {valor} ".format(index=aw, valor=Questions.answers[aw]))
-            else:
-                print("index %d é vazio " % aw)
-
-    @staticmethod
-    def reset():
+    def reset(self):
         for aw in Questions.answers:
             Questions.answers[aw] = ''
+
+    def show_result(self):
+        answers = []
+        result = {}
+
+        for answer in Questions.answers:
+            answers.append(Questions.answers[answer])
+
+        answers.sort()
+        for letter in answers:
+            result[letter] = answers.count(letter)
+
+        max_key = max(result, key=result.get)
+        print("\n:::::: %s ::::::\n%s\n" % (self.__series[max_key]['serie'], self.__series[max_key]['msg']))
