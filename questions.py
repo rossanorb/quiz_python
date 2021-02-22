@@ -23,7 +23,8 @@ class Questions:
                 return True
         return False
 
-    def scramble(data):
+    @staticmethod
+    def __scramble(data):
         index = ['a', 'b', 'c', 'd', 'e']
         i = 0
 
@@ -41,8 +42,8 @@ class Questions:
         return Questions.options
 
     @staticmethod
-    def show_question(data):
-        data['questions'] = Questions.scramble(data['questions'])
+    def __show_question(data):
+        data['questions'] = Questions.__scramble(data['questions'])
 
         print(data['title'])
         for q in data['questions']:
@@ -51,7 +52,7 @@ class Questions:
     def next_question(self):
         for aw in Questions.answers:
             if Questions.answers[aw] == '':
-                self.show_question(self.__questions[aw])
+                self.__show_question(self.__questions[aw])
                 return True
 
         return False
